@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Play Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🎮 Guess the Number ({{ range }})</h1>
+    <p><strong>Score:</strong> {{ score }} | <strong>Attempts Left:</strong> {{ attempts }}</p>
+    <p>{{ message }}</p>
+
+    {% if not game_over %}
+        <form method="POST">
+            <input type="number" name="guess" required placeholder="Enter your guess">
+            <br>
+            <button type="submit">Submit Guess</button>
+        </form>
+    {% else %}
+        <a href="/">Play Again</a>
+    {% endif %}
+</body>
+</html>
